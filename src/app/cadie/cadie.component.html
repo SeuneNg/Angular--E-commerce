@@ -1,0 +1,25 @@
+<div class="panel panel-heading">
+  <div class="panel-heading"> Mon Panier</div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <tr>
+        <th>Name</th><th>Quantité</th><th>Prix</th>
+      </tr>
+      <tr *ngFor="let item of caddy.items|keyvalue">
+        <td>{{item.value.designation}}</td>
+        <td>{{item.value.quantite}}</td>
+        <td>{{item.value.price}}</td>
+        <td>
+          <button class="btn btn-danger" (click)="removeProduitFromPanier(item.value)">
+            <span class="glyphicon glyphicon-remove"></span>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td colspan="3">Total</td>
+        <td>{{cadiService.getTotal()}}</td>
+      </tr>
+    </table>
+    <button class="btn btn-success" (click)="onSave()"> Commander</button>
+  </div>
+</div>

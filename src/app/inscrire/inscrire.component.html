@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Inscription</div>
+      <div class="panel-body">
+        <form #f="ngForm" (ngSubmit)="onSaveClient(f.value)">
+          <div class="form-group">
+            <label class="control-label">Nom</label>
+            <input class="form-control" type="text" name="nom" ngModel>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Prenom</label>
+            <input class="form-control" type="text" name="prenom" ngModel>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Adresse</label>
+            <input class="form-control" type="text" name="adresse" ngModel>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Telephone</label>
+            <input class="form-control" type="text" name="tel" ngModel>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Email</label>
+            <input class="form-control" type="text" name="email" ngModel>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Mot de passe</label>
+            <input class="form-control" type="password" name="mdp" ngModel>
+          </div>
+          <button class="btn btn-succes" type="submit">Save</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,50 @@
+<div class="container"><div class="panel panel-primary">
+  <div class="panel-heading">Liste produits</div>
+  <div class="panel-body">
+    <form #f="ngForm" (ngSubmit)="onChercher(f.value)">
+      <div class="form-group">
+        <label>motcle: </label>
+        <input type="text" name="motcle" ngModel>
+        <button type="submit" class="btn btn-primary">Search</button>
+      </div>
+      <ul>
+        <li>
+          <a>{{cadservice.getCaddy().name}} | {{cadservice.getCaddy().items.size}}</a>
+          <a class="btn btn-primary right" routerLink="/cadie">Mon Panier</a>
+        </li>
+      </ul>
+
+    </form>
+    <div *ngIf="produits">
+      <div *ngFor="let p of produits._embedded.produits">
+        <div class="col-md-6">
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <img height="200" width="200" src="{{'http://localhost:8082/produitPhoto/'+p.id}}" class="img-rounded"/>
+              <div class="panel-body">
+                <h4>{{p.designation}}</h4>
+                <h5>Description:{{p.description}}</h5>
+                <h5>Prix:{{p.price|number:'0.2'}}</h5>
+                <div>
+                  <form #f="ngForm" (ngSubmit)="addPanier(p)">
+                    <label class="control-label">Quantité :</label>
+                    <input type="number" name="quantity" ngModel style="width:40px" [(ngModel)]="p.quantite">
+                    <button>
+                      <img height="15" width="15" src="assets/image/panier.png">
+                    </button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+  <ul *ngIf="pages" class="nav nav-pills">
+    <li class="clickable" [ngClass]="i==page?'active':''" *ngFor="let p of pages; let i=index">
+      <a (click)="onPage(i)">{{i}}</a>
+    </li>
+  </ul>
+</div>

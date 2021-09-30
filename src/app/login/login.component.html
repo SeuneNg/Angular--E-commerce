@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="col-md-6 col-sm-6 col-xs-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">Login</div>
+      <div class="panel-body">
+        <form #f="ngForm" (ngSubmit)="login(f.value)">
+          <div class="form-group">
+          <div class="form-group">
+            <label class="control-label">Email</label>
+            <input class="form-control" type="text" name="email" ngModel>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Mot de passe</label>
+            <input class="form-control" type="password" name="mdp" ngModel>
+          </div>
+          <button class="btn btn-succes" type="submit">Save</button>
+          </div>
+        </form>
+    </div>
+  </div>
+</div>
+</div>
+
